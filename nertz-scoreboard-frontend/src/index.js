@@ -18,13 +18,13 @@ const reducer = () => {
 const store = createStore(reducer)
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router>
+  <Router>
+    <Provider store={store}>
       <React.StrictMode>
         <App />
       </React.StrictMode>
-    </Router>
-  </Provider>,
+    </Provider>
+  </Router>,
   document.getElementById('root')
 );
 
