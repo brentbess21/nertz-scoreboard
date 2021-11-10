@@ -8,8 +8,11 @@ const Home = () => {
         <div>
             <Header />
             <h1>Welcom to the Nertz Scoreboard!</h1>
-            <Link to='/'>New Game</Link>
-            <Link to='/'>Resume Game</Link>
+            <div>
+                <Link to='/' className='link-button'>New Game</Link>
+                <Link to='/' className='link-button'>Resume Game</Link>
+            </div>
+            
         </div>
     )
 }
