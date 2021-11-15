@@ -7,7 +7,7 @@ const Header = () => {
             <nav>
                 <Link to='/'>Home</Link>
                 <Link to ='/about'>About</Link>
-                <a href='https://bicyclecards.com/how-to-play/nerts/' target="_blank">Rules</a>
+                <a href='https://bicyclecards.com/how-to-play/nerts/' target="_blank" rel='noreferrer'>Rules</a>
             </nav>
         </header>
     )
