@@ -7,7 +7,7 @@ const Home = () => {
     return (
         <div>
             <Header />
-            <h1>Welcom to the Nertz Scoreboard!</h1>
+            <h1>Welcom to the Nerts Scoreboard!</h1>
             <div>
                 <Link to='/' className='link-button'>New Game</Link>
                 <Link to='/' className='link-button'>Resume Game</Link>
