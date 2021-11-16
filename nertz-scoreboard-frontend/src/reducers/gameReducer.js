@@ -3,38 +3,48 @@ import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS } from "../actions/gameActio
 export const initialState = {
     games: [
         {
-            gameId: null,
-            winningScore: null,
-            rounds: null,
-            players: [
-                {
-                    playerId: null,
-                    playerName: null,
-                    playerScore: null
-                }
-            ]
+            gameId: null
         }
     ]
+    // games: [
+    //     {
+    //         gameId: null,
+    //         winningScore: null,
+    //         rounds: null,
+    //         players: [
+    //             {
+    //                 playerId: null,
+    //                 playerName: null,
+    //                 playerScore: null
+    //             }
+    //         ]
+    //     }
+    // ]
 }
 
-const gameReducer = (state, action) => {
+const gameReducer = (state = initialState, action) => {
     switch(action.type) {
         case(CREATE_GAME):
-            return ({
+            return({
                 ...state,
-                games: [...state.games, 
-                    {
-                        gameId: action.payload,
-                         winningScore: null, 
-                         rounds: null, 
-                         players: [{
-                            playerId: null,
-                            playerName: null,
-                            playerScore: null
-                         }]
-                    }
-                ]
+                games: [...state.games, {gameId:action.payload}]
+
             })
+            // return ({
+            //     ...state,
+            //     games: [...state.games, 
+            //         {
+            //             gameId: action.payload,
+            //              winningScore: null, 
+            //              rounds: null, 
+            //              players: [{
+            //                 playerId: null,
+            //                 playerName: null,
+            //                 playerScore: null
+            //              }]
+            //         }
+            //     ]
+            // })
         case(SET_WINNING_SCORE):
             return state
         case(SET_ROUNDS):

@@ -8,14 +8,9 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 
+import gameReducer from './reducers/gameReducer';
 
-const reducer = () => {
-  return {
-    title: "Hello from the Redux Store!"
-  }
-}
-
-const store = createStore(reducer)
+const store = createStore(gameReducer)
 
 ReactDOM.render(
   <Router>
