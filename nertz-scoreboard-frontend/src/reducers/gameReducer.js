@@ -5,7 +5,14 @@ export const initialState = {
         {
             gameId: null,
             winningScore: null,
-            rounds: null
+            rounds: null,
+            players: [
+                {
+                    playerId: null,
+                    playerName: null,
+                    playerScore: null
+                }
+            ]
         }
     ]
 }
@@ -13,7 +20,21 @@ export const initialState = {
 const gameReducer = (state, action) => {
     switch(action.type) {
         case(CREATE_GAME):
-            return state
+            return ({
+                ...state,
+                games: [...state.games, 
+                    {
+                        gameId: action.payload,
+                         winningScore: null, 
+                         rounds: null, 
+                         players: [{
+                            playerId: null,
+                            playerName: null,
+                            playerScore: null
+                         }]
+                    }
+                ]
+            })
         case(SET_WINNING_SCORE):
             return state
         case(SET_ROUNDS):
