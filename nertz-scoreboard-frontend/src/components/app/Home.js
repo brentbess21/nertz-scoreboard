@@ -6,17 +6,13 @@ import { createGame } from '../../actions/gameActions';
 import Header from './Header';
 
 const Home = (props) => {
-    const clickHandler = () => {
-        props.createGame(Date.now())
-        console.log(props)
-    } 
 
     return (
         <div>
             <Header />
             <h1>Welcom to the Nerts Scoreboard!</h1>
             <div>
-                <Link to='/gamestyle' className='link-button' onClick={clickHandler}>New Game</Link>
+                <Link to='/gamestyle' className='link-button'>New Game</Link>
                 <Link to='/' className='link-button'>Resume Game</Link>
             </div>
             
@@ -32,7 +28,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        createGame: (id) => dispatch(createGame(id))
+        createGame: (newGame) => dispatch(createGame(newGame))
     })
 }
 

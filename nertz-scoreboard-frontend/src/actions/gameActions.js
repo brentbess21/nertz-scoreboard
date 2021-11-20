@@ -2,8 +2,8 @@ export const CREATE_GAME = 'CREATE_GAME';
 export const SET_WINNING_SCORE = 'SET_WINNING_SCORE';
 export const SET_ROUNDS = 'SET_ROUNDS';
 
-export const createGame = (id) => {
-    return ({type: CREATE_GAME, payload: id})
+export const createGame = (newGame) => {
+    return ({type: CREATE_GAME, payload: newGame})
 }
 
 export const setWinningScore = (score) => {

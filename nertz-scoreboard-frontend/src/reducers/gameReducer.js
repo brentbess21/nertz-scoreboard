@@ -1,25 +1,18 @@
 import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS } from "../actions/gameActions"
 
 export const initialState = {
-    games: [
-        {
-            gameId: null
-        }
-    ]
-    // games: [
-    //     {
-    //         gameId: null,
-    //         winningScore: null,
-    //         rounds: null,
-    //         players: [
-    //             {
-    //                 playerId: null,
-    //                 playerName: null,
-    //                 playerScore: null
-    //             }
-    //         ]
-    //     }
-    // ]
+    games: [], // array of objects
+    gameFormValues: {
+        gameId: 0,
+        winningScore: null,
+        rounds: null,
+        players: [] //array of player objects
+    },
+    playerFormValues: {
+        playerId: 0,
+        playerNumber: null,
+        playerName: null,
+    }
 }
 
 const gameReducer = (state = initialState, action) => {
@@ -27,26 +20,14 @@ const gameReducer = (state = initialState, action) => {
         case(CREATE_GAME):
             return({
                 ...state,
-                games: [...state.games, {gameId:action.payload}]
+                games: [...state.games, action.payload] //action.payload should be a newGame object
 
             })
-            // return ({
-            //     ...state,
-            //     games: [...state.games, 
-            //         {
-            //             gameId: action.payload,
-            //              winningScore: null, 
-            //              rounds: null, 
-            //              players: [{
-            //                 playerId: null,
-            //                 playerName: null,
-            //                 playerScore: null
-            //              }]
-            //         }
-            //     ]
-            // })
         case(SET_WINNING_SCORE):
-            return state
+            return ({
+                ...state,
+                gameFormValues: {...state.gameFormValues, winningScore: action.payload}
+            })
         case(SET_ROUNDS):
             return state
         default:
