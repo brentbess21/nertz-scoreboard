@@ -21,7 +21,6 @@ const ScoreSetup = (props) => {
     const clickHandler = () => {
         const score = parseInt(inputValue)
         props.setWinningScore(score)
-        console.log(props.gameFormValues)
     }
     return(
         <div>

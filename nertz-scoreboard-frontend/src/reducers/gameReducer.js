@@ -1,4 +1,4 @@
-import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS } from "../actions/gameActions"
+import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER } from "../actions/gameActions"
 
 export const initialState = {
     games: [], // array of objects
@@ -10,8 +10,8 @@ export const initialState = {
     },
     playerFormValues: {
         playerId: 0,
-        playerNumber: null,
-        playerName: null,
+        playerNumber: 0,
+        playerName: '',
     }
 }
 
@@ -30,6 +30,12 @@ const gameReducer = (state = initialState, action) => {
             })
         case(SET_ROUNDS):
             return state
+        
+        case(ADD_PLAYER):
+            return ({
+                ...state,
+                gameFormValues: { ...state.gameFormValues, players: [...state.gameFormValues.players, action.payload]}
+            })
         default:
             return state
     }
