@@ -15,7 +15,10 @@ const PlayerSetup = (props) => {
             <Header />
             <h1>This is the Player Setup Componenet</h1>
             <PlayerForm />
-            <Player />
+            {props.gameFormValues.players.map(player => {
+                return <Player key={player.playerId} />
+            })}
+        
             <button onClick={clickHandler}>Tell Me About the Game</button>
         </div>
     )
