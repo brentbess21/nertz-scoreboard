@@ -20,6 +20,7 @@ const PlayerForm = (props) => {
             playerName: playerName
         }
         props.addPlayer(newPlayer)
+        setPlayerName('')
     }
 
     return(
