@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 
 import Header from '../app/Header';
 import PlayerForm from './PlayerForm';
+import Player from './Player';
 
 const PlayerSetup = (props) => {
 
@@ -14,6 +15,7 @@ const PlayerSetup = (props) => {
             <Header />
             <h1>This is the Player Setup Componenet</h1>
             <PlayerForm />
+            <Player />
             <button onClick={clickHandler}>Tell Me About the Game</button>
         </div>
     )
