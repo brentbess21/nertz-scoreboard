@@ -8,8 +8,8 @@ const GameStyle = () => {
         <div>
             <Header />
             <h1>How Would You Like to Play?</h1>
-            <Link to='/scoresetup' className='link-button'>Winning Score</Link>
-            <Link to='/' className='link-button'>Number of Rounds</Link>
+            <Link to='/score_setup' className='link-button'>Winning Score</Link>
+            <Link to='/rounds_setup' className='link-button'>Number of Rounds</Link>
         </div>
     )
 }

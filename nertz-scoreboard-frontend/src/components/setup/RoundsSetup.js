@@ -1,15 +1,13 @@
-import { React, useState } from "react";
+import { React, useState } from 'react';
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
+import { setRounds } from '../../actions/gameActions';
 
-import { setWinningScore } from '../../actions/gameActions';
+import Header from '../app/Header';
 
-import Header from "../app/Header";
+const initialInputValue = 1;
 
-const initialInputValue = 100
-
-const ScoreSetup = (props) => {
-
+const RoundsSetup = (props) => {
     const [inputValue, setInputValue] = useState(initialInputValue)
 
     const changeHandler = (e) => {
@@ -18,19 +16,18 @@ const ScoreSetup = (props) => {
     }
 
     const clickHandler = () => {
-        const score = parseInt(inputValue)
-        props.setWinningScore(score)
+        const rounds = parseInt(inputValue)
+        props.setRounds(rounds)
     }
     return(
         <div>
             <Header />
-            <h1>What Should the Winning Score Be?</h1>
+            <h1>How Many Rounds Would You Like to Play?</h1>
             <Link to='/gamestyle' className='link-button'>Back</Link>
             <input 
                 type='number'
                 defaultValue={initialInputValue}
-                step='10'
-                min='10'
+                min='1'
                 onChange={changeHandler}
                 onClick={clickHandler}
             />
@@ -47,8 +44,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return ({
-        setWinningScore: (score) => dispatch(setWinningScore(score))
+        setRounds: (rounds) => dispatch(setRounds(rounds))
     })
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ScoreSetup);
+export default connect(mapStateToProps, mapDispatchToProps)(RoundsSetup);

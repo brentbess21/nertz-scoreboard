@@ -6,6 +6,7 @@ import About from './About';
 import Rules from './Rules';
 import GameStyle from '../setup/GameStyle';
 import ScoreSetup from '../setup/ScoreSetup';
+import RoundsSetup from '../setup/RoundsSetup';
 import PlayerSetup from '../setup/PlayerSetup';
 
 
@@ -14,8 +15,9 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path='/playersetup' element={<PlayerSetup />}/>
-        <Route path='/scoresetup' element={<ScoreSetup />}/>
+        <Route path='/player_setup' element={<PlayerSetup />}/>
+        <Route path ='/rounds_setup' element={<RoundsSetup />} />
+        <Route path='/score_setup' element={<ScoreSetup />}/>
         <Route path='/gamestyle' element={<GameStyle />}/>
         <Route path='/rules' element={<Rules />}/>
         <Route path='/about' element={<About />}/>

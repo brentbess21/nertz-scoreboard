@@ -29,7 +29,10 @@ const gameReducer = (state = initialState, action) => {
                 gameFormValues: {...state.gameFormValues, winningScore: action.payload}
             })
         case(SET_ROUNDS):
-            return state
+            return ({
+                ...state,
+                gameFormValues: {...state.gameFormValues, rounds: action.payload}
+            })
         
         case(ADD_PLAYER):
             return ({
