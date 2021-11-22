@@ -13,12 +13,13 @@ const PlayerForm = (props) => {
     }
 
     const clickHandler = () => {
-
         const newPlayer = {
             playerId: Date.now(),
             playerNumber: props.gameFormValues.players.length +1,
-            playerName: playerName
+            playerName: playerName,
+            score: 0
         }
+
         props.addPlayer(newPlayer)
         setPlayerName('')
     }
@@ -33,7 +34,7 @@ const PlayerForm = (props) => {
                 value={playerName}
                 onChange={changeHandler}
             />
-            <button onClick={clickHandler}>Click Me!</button>
+            <button onClick={clickHandler}>Add Player</button>
         </div>
     )
 }

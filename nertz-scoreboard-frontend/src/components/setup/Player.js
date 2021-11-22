@@ -4,7 +4,6 @@ const Player = (props) => {
 
     const { player } = props
 
-    console.log(player)
     return(
         <div>
             <h3>Player #{player.playerNumber}</h3>
