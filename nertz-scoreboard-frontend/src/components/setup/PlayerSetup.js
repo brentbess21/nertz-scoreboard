@@ -13,7 +13,10 @@ const PlayerSetup = (props) => {
     return(
         <div>
             <Header />
-            <h1>This is the Player Setup Componenet</h1>
+
+            { props.gameFormValues.winningScore !== null ? 
+            <h1>For a game with a winning score of {props.gameFormValues.winningScore}</h1> :
+            <h1>For a game with {props.gameFormValues.rounds} rounds</h1>}
             <PlayerForm />
             {props.gameFormValues.players.map(player => {
                 return <Player key={player.playerId} player={player}/>

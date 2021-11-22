@@ -1,9 +1,7 @@
 import React from 'react';
 
-
-
 const Player = (props) => {
-    
+
     const { player } = props
 
     console.log(player)
@@ -14,7 +12,5 @@ const Player = (props) => {
         </div>
     )
 }
-
-
 
 export default Player;
