@@ -13,12 +13,17 @@ const Game = (props) => {
 
     const game = games.find(game => game.gameId === parseInt(gameId));
 
+    const clickHandler = () => {
+        console.log(games)
+    }
+
     if(game) {
         return(
             <div>
                 <Header />
                 <h1>GAME ID:{game.gameId}</h1>
-                <ScoreBoard />            
+                <ScoreBoard /> 
+                <button onClick={clickHandler}>Click Me!</button>           
             </div>
         )
     } else {

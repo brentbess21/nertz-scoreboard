@@ -17,7 +17,8 @@ const PlayerForm = (props) => {
             playerId: Date.now(),
             playerNumber: props.gameFormValues.players.length +1,
             playerName: playerName,
-            score: 0
+            currentScore: 0,
+            roundScore: []
         }
 
         props.addPlayer(newPlayer)

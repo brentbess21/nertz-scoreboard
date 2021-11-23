@@ -1,4 +1,4 @@
-import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER, RESET_GAME_FORM, RESET_PLAYER_FORM } from "../actions/gameActions"
+import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER, RESET_GAME_FORM, RESET_PLAYER_FORM, UPDATE_PLAYER_SCORE } from "../actions/gameActions"
 
 export const initialState = {
     games: [], // array of objects
@@ -13,7 +13,8 @@ export const initialState = {
         playerId: 0,
         playerNumber: 0,
         playerName: '',
-        score: 0
+        currentScore: 0,
+        roundScore: [] // array of scores for each round
     }
 }
 
@@ -52,6 +53,7 @@ const gameReducer = (state = initialState, action) => {
                     players: []
                 }
             })
+
         case(RESET_PLAYER_FORM):
             return({
                 ...state,
@@ -62,7 +64,21 @@ const gameReducer = (state = initialState, action) => {
                     score: 0
                 }
             })
+
         
+        case(UPDATE_PLAYER_SCORE):
+            const gameIndex = state.games.findIndex(game => game.gameId === action.payload.gameId)
+            const newGamesArray = [...state.games]
+            const correctGame = newGamesArray[gameIndex]
+            const playerIndex = correctGame.players.findIndex(player => player.playerId === action.payload.playerId)
+            const newPlayerArray = [...correctGame.players]
+            const correctPlayer = newPlayerArray[playerIndex]
+            correctPlayer.currentScore = action.payload.score
+            console.log('FROM REDUCER: ', correctPlayer.currentScore)
+            return({
+                ...state,
+                games: [...state.games, correctPlayer]
+            })
         default:
             return state
     }

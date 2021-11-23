@@ -6,7 +6,7 @@ const Error = (props)=> {
     return(
         <div>
             <Header />
-            <h1>Uh Oh! That was not found!</h1>
+            <h1>Uh Oh! There was nothing found!</h1>
         </div>
     )
 }

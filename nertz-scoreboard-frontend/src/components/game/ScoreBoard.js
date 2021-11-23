@@ -14,7 +14,7 @@ const ScoreBoard = (props) => {
 
     return(
         <div>
-            <h1>Here is the ScoreBoard for you Game!</h1>
+            <h1>Here is the ScoreBoard for your Game!</h1>
             {game.players.map(player=> {
                 return <GamePlayer player={player} key={player.playerId}/>
             })}
