@@ -4,6 +4,7 @@ export const initialState = {
     games: [], // array of objects
     gameFormValues: {
         gameId: 0,
+        activeGame: false,
         winningScore: null,
         rounds: null,
         players: [] //array of player objects

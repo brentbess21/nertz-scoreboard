@@ -10,10 +10,10 @@ const Home = (props) => {
     return (
         <div>
             <Header />
-            <h1>Welcom to the Nerts Scoreboard!</h1>
+            <h1>Welcome to the Nerts Scoreboard!</h1>
             <div>
                 <Link to='/gamestyle' className='link-button'>New Game</Link>
-                <Link to='/' className='link-button'>Resume Game</Link>
+                <Link to='/games' className='link-button'>Resume Game</Link>
             </div>
             
         </div>

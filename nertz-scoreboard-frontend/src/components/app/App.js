@@ -8,7 +8,7 @@ import GameStyle from '../setup/GameStyle';
 import ScoreSetup from '../setup/ScoreSetup';
 import RoundsSetup from '../setup/RoundsSetup';
 import PlayerSetup from '../setup/PlayerSetup';
-import ScoreBoard from '../game/ScoreBoard';
+import Games from '../game/Games';
 
 
 
@@ -16,7 +16,7 @@ function App() {
   return (
     <div>
       <Routes>
-        <Route path = '/score_board' element = {<ScoreBoard />} />
+        <Route path = '/games' element = {<Games />} />
         <Route path='/player_setup' element={<PlayerSetup />}/>
         <Route path ='/rounds_setup' element={<RoundsSetup />} />
         <Route path='/score_setup' element={<ScoreSetup />}/>
