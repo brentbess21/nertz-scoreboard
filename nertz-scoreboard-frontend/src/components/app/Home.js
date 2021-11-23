@@ -13,7 +13,7 @@ const Home = (props) => {
             <h1>Welcome to the Nerts Scoreboard!</h1>
             <div>
                 <Link to='/gamestyle' className='link-button'>New Game</Link>
-                <Link to='/games' className='link-button'>Resume Game</Link>
+                <Link to='/games_list' className='link-button'>Resume Game</Link>
             </div>
             
         </div>

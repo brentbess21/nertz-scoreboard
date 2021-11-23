@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link, Outlet } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import Header from '../app/Header';
-import Game from './Game';
 
 const Games = (props) => {
+
     const clickHandler = () => {
         console.log(props.games)
     }
@@ -13,9 +14,11 @@ const Games = (props) => {
             <Header />
             <h1>Pick a Game!</h1>
             {props.games.map(game => {
-                return <Game key={game.gameId} game={game}/>
+                return <Link className='link-button' to={`/games_list/${game.gameId}`} key={game.gameId}>{game.gameId}</Link>
+            
             })}
             <button onClick={clickHandler}>Click me for them props!!</button>
+            <Outlet />
         </div>
     )
 }

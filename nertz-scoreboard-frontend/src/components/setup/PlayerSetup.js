@@ -37,7 +37,7 @@ const PlayerSetup = (props) => {
             {props.gameFormValues.players.map(player => {
                 return <Player key={player.playerId} player={player}/>
             })}
-            <Link to= '/games' className = 'link-button' onClick={clickHandler}>Create Game</Link>
+            <Link to= '/games_list' className = 'link-button' onClick={clickHandler}>Create Game</Link>
         
             <button onClick={consoleHandler}>Tell Me About the Game</button>
         </div>
