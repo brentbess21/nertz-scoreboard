@@ -3,23 +3,29 @@ import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import Header from '../app/Header';
+import ScoreBoard from './ScoreBoard';
+import Error from '../app/Error';
 
 const Game = (props) => {
 
-    const { games } = props
+    const { games } = props;
     const { gameId } = useParams();
 
-    const game = games.find(game => game.gameId === parseInt(gameId))
-    console.log(game)
-    return(
-        <div>
-            <Header />
-            <h1>GAME ID:{game.gameId}</h1>
-            <div>Players: {game.players.map(player => {
-                return <p key={player.playerId}>{player.playerName}</p>
-            })}</div>
-        </div>
-    )
+    const game = games.find(game => game.gameId === parseInt(gameId));
+
+    if(game) {
+        return(
+            <div>
+                <Header />
+                <h1>GAME ID:{game.gameId}</h1>
+                <ScoreBoard />            
+            </div>
+        )
+    } else {
+        return(
+            <Error />
+        )
+    }
 }
 
 const mapStateToProps = (state) => {
