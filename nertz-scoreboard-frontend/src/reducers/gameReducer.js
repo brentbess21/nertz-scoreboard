@@ -1,4 +1,4 @@
-import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER, RESET_GAME_FORM, RESET_PLAYER_FORM, UPDATE_PLAYER_SCORE } from "../actions/gameActions"
+import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER, RESET_GAME_FORM, RESET_PLAYER_FORM, UPDATE_PLAYER_SCORE, UPDATE_ROUND } from "../actions/gameActions"
 
 export const initialState = {
     games: [], // array of objects
@@ -7,6 +7,7 @@ export const initialState = {
         activeGame: false,
         winningScore: null,
         rounds: null,
+        currentRound: 0,
         players: [] //array of player objects
     },
     playerFormValues: {
@@ -65,7 +66,6 @@ const gameReducer = (state = initialState, action) => {
                 }
             })
 
-        
         case(UPDATE_PLAYER_SCORE):
             const gameIndex = state.games.findIndex(game => game.gameId === action.payload.gameId)
             const newGamesArray = [...state.games]
@@ -74,10 +74,27 @@ const gameReducer = (state = initialState, action) => {
             const newPlayerArray = [...correctGame.players]
             const correctPlayer = newPlayerArray[playerIndex]
             correctPlayer.currentScore = action.payload.score
-            console.log('FROM REDUCER: ', correctPlayer.currentScore)
+
+            console.log('FROM REDUCER: ', correctPlayer)
+            console.log('FROM REDUCER 2', correctGame)
             return({
                 ...state,
-                games: [...state.games, correctPlayer]
+                games: [...state.games]
+            })
+
+        case(UPDATE_ROUND):
+            const gameIndex2 = state.games.findIndex(game => game.gameId === action.payload.gameId)
+            const newGamesArray2 = [...state.games]
+            const correctGame2 = newGamesArray2[gameIndex2]
+            correctGame2.currentRound += 1
+
+            console.log(correctGame2)
+            console.log(newGamesArray2)
+            return({
+                ...state,
+                games: [...state.games]
+                
+
             })
         default:
             return state

@@ -5,7 +5,6 @@ import ScoreForm from './ScoreForm';
 const GamePlayer = (props) => {
 
     const { player } = props;
-    console.log(player)
     return(
         <div>
             <h3>{player.playerName}</h3>

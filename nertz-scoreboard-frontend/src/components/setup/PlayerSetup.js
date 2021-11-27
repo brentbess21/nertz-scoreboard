@@ -19,6 +19,7 @@ const PlayerSetup = (props) => {
             gameId: Date.now(),
             winningScore: props.gameFormValues.winningScore,
             rounds: props.gameFormValues.rounds,
+            currentRound: props.gameFormValues.currentRound,
             players: props.gameFormValues.players
         }
         props.createGame(newGame)

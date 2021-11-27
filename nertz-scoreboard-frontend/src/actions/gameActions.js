@@ -5,6 +5,7 @@ export const ADD_PLAYER = 'ADD_PLAYER';
 export const RESET_GAME_FORM = 'RESET_GAME_FORM';
 export const RESET_PLAYER_FORM = 'RESET_PLAYER_FORM';
 export const UPDATE_PLAYER_SCORE = 'UPDATE_PLAYER_SCORE';
+export const UPDATE_ROUND = 'UPDATE_ROUND';
 
 export const createGame = (newGame) => {
     return ({type: CREATE_GAME, payload: newGame})
@@ -32,4 +33,8 @@ export const resetPlayerForm = () => {
 
 export const updatePlayerScore = (info) => {
     return({type: UPDATE_PLAYER_SCORE, payload: info})
+}
+
+export const updateRound = (info) => {
+    return({type: UPDATE_ROUND, payload: info})
 }
