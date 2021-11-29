@@ -14,11 +14,11 @@ const store = createStore(gameReducer)
 
 ReactDOM.render(
   <Router>
-    <Provider store={store}>
       <React.StrictMode>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </React.StrictMode>
-    </Provider>
   </Router>,
   document.getElementById('root')
 );

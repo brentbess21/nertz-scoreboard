@@ -6,6 +6,8 @@ export const RESET_GAME_FORM = 'RESET_GAME_FORM';
 export const RESET_PLAYER_FORM = 'RESET_PLAYER_FORM';
 export const UPDATE_PLAYER_SCORE = 'UPDATE_PLAYER_SCORE';
 export const UPDATE_ROUND = 'UPDATE_ROUND';
+export const UPDATE_CURRENT_HIGH_SCORE = 'UPDATE_CURRENT_HIGH_SCORE';
+export const FIND_LEADER = 'FIND_LEADER';
 
 export const createGame = (newGame) => {
     return ({type: CREATE_GAME, payload: newGame})
@@ -37,4 +39,12 @@ export const updatePlayerScore = (info) => {
 
 export const updateRound = (info) => {
     return({type: UPDATE_ROUND, payload: info})
+}
+
+export const updateCurrentHighScore = (info) => {
+    return({type: UPDATE_CURRENT_HIGH_SCORE, payload: info})
+}
+
+export const findLeader = (info) => {
+    return({type: FIND_LEADER, payload: info})
 }
