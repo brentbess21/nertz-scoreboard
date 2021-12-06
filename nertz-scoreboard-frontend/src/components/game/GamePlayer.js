@@ -7,7 +7,7 @@ const GamePlayer = (props) => {
     const { player } = props;
     return(
         <div>
-            <h3>{player.playerName}</h3>
+            <h1>{player.playerName}</h1>
             <p>Current Score: {player.currentScore}</p>
             <ScoreForm player={player}/>
         </div>

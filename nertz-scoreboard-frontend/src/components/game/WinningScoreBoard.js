@@ -23,7 +23,9 @@ const WinningScoreBoard = (props) => {
 
             {game.currentLeader.length < 1? 
             <div></div> :
-            <p>LEADER: {game.currentLeader[0].playerName}</p>
+            <h3>Current Leader: {game.currentLeader.map(player => {
+                return <p key={player.playerId} style={{display: 'inline'}}>{player.playerName} </p>
+            })}</h3>
             }
 
             {game.players.map(player=> {

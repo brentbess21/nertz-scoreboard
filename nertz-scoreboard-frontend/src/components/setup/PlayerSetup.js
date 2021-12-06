@@ -10,10 +10,6 @@ import Player from './Player';
 
 const PlayerSetup = (props) => {
 
-    const consoleHandler = () => {
-        console.log(props.gameFormValues)
-    }
-
     const clickHandler = () => {
         const newGame = {
             gameId: Date.now(),
@@ -32,7 +28,6 @@ const PlayerSetup = (props) => {
     return(
         <div>
             <Header />
-
             { props.gameFormValues.winningScore !== null ? 
             <h1>For a game with a winning score of {props.gameFormValues.winningScore}</h1> :
             <h1>For a game with {props.gameFormValues.rounds} rounds</h1>}
@@ -40,9 +35,7 @@ const PlayerSetup = (props) => {
             {props.gameFormValues.players.map(player => {
                 return <Player key={player.playerId} player={player}/>
             })}
-            <Link to='/games_list' className = 'link-button' onClick={clickHandler}>Create Game</Link>
-        
-            <button onClick={consoleHandler}>Tell Me About the Game</button>
+            <Link to={`/games_list`} className = 'link-button' onClick={clickHandler}>Create Game</Link>
         </div>
     )
 }

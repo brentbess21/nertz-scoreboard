@@ -30,7 +30,7 @@ const ScoreForm = (props) => {
     }
     return (
         <div>
-            <label> What Score Did You Get This Round?
+            <label> What Was Your Score This Round?
                 <input 
                     type='number'
                     placeholder='Round Score'

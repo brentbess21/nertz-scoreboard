@@ -7,7 +7,7 @@ export const initialState = {
         activeGame: false,
         winningScore: null,
         rounds: null,
-        currentRound: 0,
+        currentRound: 1,
         currentHighScore: 0,
         currentLeader: [],
         players: [] //array of player objects
@@ -29,11 +29,13 @@ const gameReducer = (state = initialState, action) => {
                 games: [...state.games, action.payload] //action.payload should be a newGame object
 
             })
+
         case(SET_WINNING_SCORE):
             return ({
                 ...state,
                 gameFormValues: {...state.gameFormValues, winningScore: action.payload}
             })
+
         case(SET_ROUNDS):
             return ({
                 ...state,

@@ -13,7 +13,7 @@ const Winner = (props) => {
     return(
         <div>
             <h1>WE HAVE A WINNER!</h1>
-            <p>{game.currentLeader[0].playerName} Won!</p>
+            <h3>{game.currentLeader[0].playerName} Won!</h3>
             <Link to='/gamestyle' className='link-button'>Play Again?</Link>
         </div>
     )

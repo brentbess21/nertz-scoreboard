@@ -14,24 +14,24 @@ const RoundsScoreBoard = (props) => {
 
     return(
         <div>
-            <div>
-                 <h1>Here is the ScoreBoard for your Game!</h1>
+            <h1>Here is the ScoreBoard for your Game!</h1>
 
-                 <p>Number of Rounds: {game.rounds}</p> 
+            <h3>Number of Rounds: {game.rounds}</h3> 
 
-                 <p>Current Round: {game.currentRound} </p>
+            <h3>Current Round: {game.currentRound} </h3>
 
-                {game.currentLeader.length < 1? 
-                <div></div> :
-                <p>LEADER: {game.currentLeader[0].playerName}</p>
-                }
-    
-                {game.players.map(player=> {
-                    return <GamePlayer player={player} key={player.playerId}/>
-                })}
+            {game.currentLeader.length < 1? 
+            <div></div> :
+            <h3>Current Leader: {game.currentLeader.map(player => {
+                return <p key={player.playerId} style={{display: 'inline'}}>{player.playerName} </p>
+            })}</h3>
+            }
 
-                <button onClick={nextRound}>Next Round</button>
-            </div>
+            {game.players.map(player=> {
+                return <GamePlayer player={player} key={player.playerId}/>
+            })}
+
+            <button onClick={nextRound}>Next Round</button>
         </div>
     )
 }
