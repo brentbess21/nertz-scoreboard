@@ -9,7 +9,7 @@ export const initialState = {
         rounds: null,
         currentRound: 0,
         currentHighScore: 0,
-        currentLeader: null,
+        currentLeader: [],
         players: [] //array of player objects
     },
     playerFormValues: {
@@ -51,9 +51,13 @@ const gameReducer = (state = initialState, action) => {
                 ...state,
                 gameFormValues: {
                     gameId: 0,
+                    activeGame: false,
                     winningScore: null,
                     rounds: null,
-                    players: []
+                    currentRound: 0,
+                    currentHighScore: 0,
+                    currentLeader: [],
+                    players: [] 
                 }
             })
 
@@ -64,7 +68,8 @@ const gameReducer = (state = initialState, action) => {
                     playerId: 0,
                     playerNumber: 0,
                     playerName: '',
-                    score: 0
+                    currentScore: 0,
+                    roundScore: [] 
                 }
             })
 

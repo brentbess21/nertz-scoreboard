@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import GamePlayer from './GamePlayer';
 
 import { updateCurrentHighScore, updateRound, findLeader } from '../../actions/gameActions';
+
+import RoundsScoreBoard from './RoundsScoreBoard';
+import WinningScoreBoard from './WinningScoreBoard';
+import Winner from './Winner';
 
 const currentScores = []
 const highScoreNames = []
@@ -12,7 +15,6 @@ const ScoreBoard = (props) => {
 
     const { games } = props;
     const { gameId } = useParams();
-
     const game = games.find(game => game.gameId === parseInt(gameId));
     
     const nextRound = () => {
@@ -45,84 +47,16 @@ const ScoreBoard = (props) => {
         props.updateRound(leaderInfo)
     }
 
-    // if(game.rounds !== null && game.currentRound <= game.rounds) {
-    //     return (
-    //         <div>
-    //             <h1>Here is the ScoreBoard for your Game!</h1>
-
-    //             <p>Number of Rounds: {game.rounds}</p> 
-
-    //             <p>Current Round: {game.currentRound} </p>
-
-    //             {game.currentLeader.length < 1? 
-    //             <div></div> :
-    //             <p>LEADER: {game.currentLeader[0].playerName}</p>
-    //             }
+    if(game.rounds !== null && game.currentRound <= game.rounds) {
+        return <RoundsScoreBoard nextRound={nextRound} />
+    } else if (game.winningScore !== null && game.currentHighScore < game.winningScore) {
+        return <WinningScoreBoard nextRound={nextRound} />
+    } else if (game.rounds !== null && game.currentRound > game.rounds) {
+        return <Winner />
+    } else if (game.winningScore !== null && game.currentHighScore >= game.winningScore) {
+        return <Winner />
+    }
     
-    //             {game.players.map(player=> {
-    //                 return <GamePlayer player={player} key={player.playerId}/>
-    //             })}
-
-    //             <button onClick={nextRound}>Next Round</button>
-    //         </div>
-    //     );
-    // } else if (game.rounds !== null && game.currentRound > game.rounds) {
-    //     return(
-    //         <div>
-    //             <h1>WE HAVE A WINNER!</h1>
-    //             <p>{game.currentLeader[0].playerName} WON!</p>
-    //         </div>
-    //     );
-    // } else if (game.winningScore !== null && game.currentHighScore < game.winningScore) {
-    //     return(
-    //         <div>
-    //             <h1>Here is the ScoreBoard for your Game!</h1>
-
-    //             <p>Winning Score: {game.winningScore}</p> 
-
-    //             <p>Current Round: {game.currentRound} </p>
-
-    //             {game.currentLeader.length < 1? 
-    //             <div></div> :
-    //             <p>LEADER: {game.currentLeader[0].playerName}</p>
-    //             }
-
-    //             {game.players.map(player=> {
-    //                 return <GamePlayer player={player} key={player.playerId}/>
-    //             })}
-
-    //             <button onClick={nextRound}>Next Round</button>
-    //         </div>
-    //     );
-    // } else if (game.winningScore !== null && game.currentHighScore >= game.winningScore) {
-    //     return(
-    //         <div>
-    //             <h1>WE HAVE A WINNER!</h1>
-    //             <p>{game.currentLeader[0].playerName} WON!</p>
-    //         </div>
-    //     );
-    // }
-
-    return(
-        <div>
-            <h1>Here is the ScoreBoard for your Game!</h1>
-
-            <p>Winning Score: {game.winningScore}</p> 
-
-            <p>Current Round: {game.currentRound} </p>
-
-            {!game.currentLeader ? 
-            <div></div> :
-            <p>LEADER: {game.currentLeader[0].playerName}</p>
-            }
-
-            {game.players.map(player=> {
-                return <GamePlayer player={player} key={player.playerId}/>
-            })}
-
-            <button onClick={nextRound}>Next Round</button>
-        </div>
-    );
 }
 
 const mapStateToProps = (state) => {
