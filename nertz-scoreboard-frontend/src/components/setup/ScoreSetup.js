@@ -6,7 +6,7 @@ import { setWinningScore } from '../../actions/gameActions';
 
 import Header from "../app/Header";
 
-const initialInputValue = 100
+const initialInputValue = '100';
 
 const ScoreSetup = (props) => {
 
@@ -22,19 +22,22 @@ const ScoreSetup = (props) => {
         props.setWinningScore(score)
     }
     return(
-        <div>
+        <div className='container'>
             <Header />
             <h1>What Should the Winning Score Be?</h1>
-            <Link to='/gamestyle' className='link-button'>Back</Link>
+           
             <input 
                 type='number'
                 defaultValue={initialInputValue}
                 step='10'
                 min='10'
                 onChange={changeHandler}
-                onClick={clickHandler}
             />
-            <Link to='/player_setup' className='link-button'>Enter</Link>
+            <div className='flex'>
+                <Link to='/gamestyle' className='link-button'>Back</Link>
+                <Link to='/player_setup' className='link-button' onClick={clickHandler}>Enter</Link>
+            </div>
+            
         </div>
     )
 }

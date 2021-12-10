@@ -20,10 +20,9 @@ const RoundsSetup = (props) => {
         props.setRounds(rounds)
     }
     return(
-        <div>
+        <div className='container'>
             <Header />
             <h1>How Many Rounds Would You Like to Play?</h1>
-            <Link to='/gamestyle' className='link-button'>Back</Link>
             <input 
                 type='number'
                 defaultValue={initialInputValue}
@@ -31,7 +30,10 @@ const RoundsSetup = (props) => {
                 onChange={changeHandler}
                 onClick={clickHandler}
             />
-            <Link to='/player_setup' className='link-button'>Enter</Link>
+            <div className='flex container'>
+                <Link to='/gamestyle' className='link-button'>Back</Link>
+                <Link to='/player_setup' className='link-button'>Enter</Link>
+            </div>
         </div>
     )
 }

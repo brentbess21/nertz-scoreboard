@@ -1,10 +1,9 @@
-import { CREATE_GAME, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER, RESET_GAME_FORM, RESET_PLAYER_FORM, UPDATE_PLAYER_SCORE, UPDATE_ROUND, UPDATE_CURRENT_HIGH_SCORE, FIND_LEADER } from "../actions/gameActions"
+import { CREATE_GAME, SET_GAME_ID, SET_WINNING_SCORE, SET_ROUNDS, ADD_PLAYER, RESET_GAME_FORM, RESET_PLAYER_FORM, UPDATE_PLAYER_SCORE, UPDATE_ROUND, UPDATE_CURRENT_HIGH_SCORE, FIND_LEADER, ENABLE_NEXT_BUTTON, DISABLE_NEXT_BUTTON, ENABLE_PLAY_BUTTON, DISABLE_PLAY_BUTTON, ENABLE_SAVE_BUTTON, DISABLE_SAVE_BUTTON } from "../actions/gameActions"
 
 export const initialState = {
     games: [], // array of objects
     gameFormValues: {
         gameId: 0,
-        activeGame: false,
         winningScore: null,
         rounds: null,
         currentRound: 1,
@@ -18,6 +17,12 @@ export const initialState = {
         playerName: '',
         currentScore: 0,
         roundScore: [] // array of scores for each round
+    },
+    disabledButtons: {
+        nextButton: true,
+        addPlayer: false,
+        playButton: true,
+        saveGameButton: false,
     }
 }
 
@@ -28,6 +33,12 @@ const gameReducer = (state = initialState, action) => {
                 ...state,
                 games: [...state.games, action.payload] //action.payload should be a newGame object
 
+            })
+
+        case(SET_GAME_ID):
+            return({
+                ...state,
+                gameFormValues: {...state.gameFormValues, gameId: action.payload}
             })
 
         case(SET_WINNING_SCORE):
@@ -53,7 +64,6 @@ const gameReducer = (state = initialState, action) => {
                 ...state,
                 gameFormValues: {
                     gameId: 0,
-                    activeGame: false,
                     winningScore: null,
                     rounds: null,
                     currentRound: 0,
@@ -117,6 +127,43 @@ const gameReducer = (state = initialState, action) => {
                 ...state,
                 games: [...state.games]
             })
+
+        case(ENABLE_NEXT_BUTTON):
+            return({
+                ...state,
+                disabledButtons: {...state.disabledButtons, nextButton: false}
+            })
+
+        case(DISABLE_NEXT_BUTTON):
+            return({
+                ...state,
+                disabledButtons: {...state.disabledButtons, nextButton: true}
+            })
+
+        case(ENABLE_PLAY_BUTTON):
+            return({
+                ...state,
+                disabledButtons: {...state.disabledButtons, playButton: false}
+            })
+
+        case(DISABLE_PLAY_BUTTON):
+            return({
+                ...state,
+                disabledButtons: {...state.disabledButtons, playButton: true}
+            })
+
+        case(ENABLE_SAVE_BUTTON):
+            return({
+                ...state,
+                disabledButtons: {...state.disabledButtons, saveGameButton: false}
+            })
+
+        case(DISABLE_SAVE_BUTTON):
+            return({
+                ...state,
+                disabledButtons: {...state.disabledButtons, saveGameButton: true}
+            })
+
         default:
             return state
     }

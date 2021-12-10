@@ -8,10 +8,10 @@ import Header from './Header';
 const Home = (props) => {
 
     return (
-        <div>
+        <div className='container'>
             <Header />
-            <h1>Welcome to the Nerts Scoreboard!</h1>
-            <div>
+            <h1 className='ff-serif fs-700 uppercase'>Welcome to the Nerts Scoreboard</h1>
+            <div className='container flex'>
                 <Link to='/gamestyle' className='link-button'>New Game</Link>
                 <Link to='/games_list' className='link-button'>Resume Game</Link>
             </div>

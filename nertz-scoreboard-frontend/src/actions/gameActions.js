@@ -1,4 +1,5 @@
 export const CREATE_GAME = 'CREATE_GAME';
+export const SET_GAME_ID= 'SET_GAME_ID';
 export const SET_WINNING_SCORE = 'SET_WINNING_SCORE';
 export const SET_ROUNDS = 'SET_ROUNDS';
 export const ADD_PLAYER = 'ADD_PLAYER';
@@ -8,9 +9,19 @@ export const UPDATE_PLAYER_SCORE = 'UPDATE_PLAYER_SCORE';
 export const UPDATE_ROUND = 'UPDATE_ROUND';
 export const UPDATE_CURRENT_HIGH_SCORE = 'UPDATE_CURRENT_HIGH_SCORE';
 export const FIND_LEADER = 'FIND_LEADER';
+export const ENABLE_NEXT_BUTTON = 'ENABLE_NEXT_BUTTON';
+export const DISABLE_NEXT_BUTTON = 'DISABLE_NEXT_BUTTON';
+export const ENABLE_PLAY_BUTTON = 'ENABLE_PLAY_BUTTON';
+export const DISABLE_PLAY_BUTTON = 'DISABLE_PLAY_BUTTON';
+export const ENABLE_SAVE_BUTTON = 'ENABLE_SAVE_BUTTON';
+export const DISABLE_SAVE_BUTTON = 'DISABLE_SAVE_BUTTON';
 
 export const createGame = (newGame) => {
     return ({type: CREATE_GAME, payload: newGame})
+}
+
+export const setGameId = (id) => {
+    return({type: SET_GAME_ID, payload: id})
 }
 
 export const setWinningScore = (score) => {
@@ -47,4 +58,28 @@ export const updateCurrentHighScore = (info) => {
 
 export const findLeader = (info) => {
     return({type: FIND_LEADER, payload: info})
+}
+
+export const enableNextButton = () => {
+    return({type: ENABLE_NEXT_BUTTON})
+}
+
+export const disableNextButton = () => {
+    return({type: DISABLE_NEXT_BUTTON})
+}
+
+export const enablePlayButton = () => {
+    return({type: ENABLE_PLAY_BUTTON})
+}
+
+export const disablePlayButton = () => {
+    return({type: DISABLE_PLAY_BUTTON})
+}
+
+export const enableSaveButton = () => {
+    return({type: ENABLE_SAVE_BUTTON})
+}
+
+export const disableSaveButton = () => {
+    return({type: DISABLE_SAVE_BUTTON})
 }

@@ -15,7 +15,7 @@ const WinningScoreBoard = (props) => {
     return(
         <div>
         
-            <h1>Here is the ScoreBoard for your Game!</h1>
+            <h1>Nerts Score board!</h1>
 
             <p>Winning Score: {game.winningScore}</p> 
 

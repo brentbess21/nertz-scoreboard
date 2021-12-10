@@ -8,7 +8,7 @@ const Games = (props) => {
 
     if(props.games.length < 1) {
         return(
-            <div>
+            <div className='container'>
                 <Header />
                 <h1>There are no saved games!</h1>
                 <p>Start A New Game To Get Started!</p>
@@ -17,7 +17,7 @@ const Games = (props) => {
         )
     } else {
         return (
-            <div>
+            <div className='container'>
                 <Header />
                 <h1>Pick a Game!</h1>
                 {props.games.map(game => {

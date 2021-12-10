@@ -14,7 +14,7 @@ const RoundsScoreBoard = (props) => {
 
     return(
         <div>
-            <h1>Here is the ScoreBoard for your Game!</h1>
+            <h1>Nerts Score board!</h1>
 
             <h3>Number of Rounds: {game.rounds}</h3> 
 

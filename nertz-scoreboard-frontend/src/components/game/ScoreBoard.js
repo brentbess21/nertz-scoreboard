@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import { updateCurrentHighScore, updateRound, findLeader } from '../../actions/gameActions';
 
+import Header from '../app/Header';
 import RoundsScoreBoard from './RoundsScoreBoard';
 import WinningScoreBoard from './WinningScoreBoard';
 import Winner from './Winner';
@@ -47,14 +48,44 @@ const ScoreBoard = (props) => {
         props.updateRound(leaderInfo)
     }
 
-    if(game.rounds !== null && game.currentRound <= game.rounds) {
-        return <RoundsScoreBoard nextRound={nextRound} />
+    if(!game) {
+        return(
+            <div>
+                <Header />
+                <h1>Uh Oh! That game wasn't found!</h1>
+                <p>Please navigate back home to resume a game or start a new game!</p>
+                <Link to='/' className='link-button'>Home</Link>
+            </div>
+        )
+    } else if (game.rounds !== null && game.currentRound <= game.rounds) {
+        return (
+            <div className='container'>
+                <Header />
+                <RoundsScoreBoard nextRound={nextRound} />
+            </div>
+        )
     } else if (game.winningScore !== null && game.currentHighScore < game.winningScore) {
-        return <WinningScoreBoard nextRound={nextRound} />
+        return (
+            <div className='container'>
+                <Header />
+                <WinningScoreBoard nextRound={nextRound} /> 
+            </div>
+                
+        ) 
     } else if (game.rounds !== null && game.currentRound > game.rounds) {
-        return <Winner />
+        return (
+            <div className='container'>
+                <Header />
+                <Winner />
+            </div>
+        ) 
     } else if (game.winningScore !== null && game.currentHighScore >= game.winningScore) {
-        return <Winner />
+        return (
+            <div className='container'>
+                <Header />
+                <Winner />
+            </div>
+        ) 
     }
     
 }
