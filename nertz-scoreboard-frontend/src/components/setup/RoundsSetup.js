@@ -5,7 +5,7 @@ import { setRounds } from '../../actions/gameActions';
 
 import Header from '../app/Header';
 
-const initialInputValue = 1;
+const initialInputValue = '1';
 
 const RoundsSetup = (props) => {
     const [inputValue, setInputValue] = useState(initialInputValue)
@@ -28,11 +28,10 @@ const RoundsSetup = (props) => {
                 defaultValue={initialInputValue}
                 min='1'
                 onChange={changeHandler}
-                onClick={clickHandler}
             />
             <div className='flex container'>
                 <Link to='/gamestyle' className='link-button'>Back</Link>
-                <Link to='/player_setup' className='link-button'>Enter</Link>
+                <Link to='/player_setup' className='link-button' onClick={clickHandler}>Enter</Link>
             </div>
         </div>
     )

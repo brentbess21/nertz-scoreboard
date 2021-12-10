@@ -17,9 +17,9 @@ const Game = (props) => {
             <div>
                 <Header />
                 <h1>GAME ID:{game.gameId}</h1>
-                <h3>Players</h3>
+                <h3>Players:</h3>
                 {game.players.map(player=> {
-                    return <p key={player.playerId}>{player.playerName}</p>
+                    return <p key={player.playerId}>{player.playerName}: {player.currentScore}</p>
                 })}
                 <div className='container flex'>
                     <Link to='/games_list' className='link-button'>Back</Link>

@@ -66,7 +66,7 @@ const gameReducer = (state = initialState, action) => {
                     gameId: 0,
                     winningScore: null,
                     rounds: null,
-                    currentRound: 0,
+                    currentRound: 1,
                     currentHighScore: 0,
                     currentLeader: [],
                     players: [] 

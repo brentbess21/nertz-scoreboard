@@ -21,7 +21,7 @@ const Games = (props) => {
                 <Header />
                 <h1>Pick a Game!</h1>
                 {props.games.map(game => {
-                    return <Link className='link-button' to={`/games_list/${game.gameId}`} key={game.gameId}>{game.gameId}</Link>
+                    return <Link className='link-button' to={`/games_list/${game.gameId}`} key={game.gameId}>{game.gameId}: {game.players.length} players</Link>
                 
                 })}
             </div>

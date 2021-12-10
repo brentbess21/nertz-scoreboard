@@ -21,6 +21,7 @@ const ScoreSetup = (props) => {
         const score = parseInt(inputValue)
         props.setWinningScore(score)
     }
+    
     return(
         <div className='container'>
             <Header />
