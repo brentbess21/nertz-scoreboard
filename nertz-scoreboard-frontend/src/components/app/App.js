@@ -12,6 +12,7 @@ import GameSetup from '../setup/GameSetup';
 import Games from '../game/Games';
 import Game from '../game/Game';
 import ScoreBoard from '../game/ScoreBoard';
+import Error from './Error';
 
 
 
@@ -30,13 +31,7 @@ function App() {
         <Route path='rules' element={<Rules />}/>
         <Route path='about' element={<About />}/>
         <Route exact path ='/' element={<Home />}/>
-        <Route path="*"
-          element={
-                    <main style={{ padding: "1rem" }}>
-                      <p>There's nothing here!</p>
-                    </main>
-      }
-    />
+        <Route path="*" element= {<Error />}/>
       </Routes>
     </div>
   );

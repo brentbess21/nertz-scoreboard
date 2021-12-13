@@ -3,15 +3,20 @@ import { Link } from 'react-router-dom';
 
 import Header from './../app/Header';
 
+import img from './../../assets/question-marks.png';
+
 const GameStyle = () => {
     return(
-        <div className='container'>
+        <div className='gamestyle'>
             <Header />
-            <h1 className='ff-serif fs-700 uppercase'>How Would You Like to Play?</h1>
-            <div className='container flex'>
-                <Link to='/score_setup' className='link-button'>Select Score</Link>
-                <Link to='/rounds_setup' className='link-button'>Select Rounds</Link>
-            </div>
+            <main className='grid-container grid-container--gamestyle'>
+                <h1 className='title txt-light'>How Would You <span className='title-bottom display-block txt-dark fs-800'>Like to Play?</span></h1>
+                <img src={img} alt='question marks' />
+                <div className='flex double-button'>
+                    <Link to='/score_setup' className='link-button'>Select Score</Link>
+                    <Link to='/rounds_setup' className='link-button'>Select Rounds</Link>
+                </div>
+            </main>
            
         </div>
     )

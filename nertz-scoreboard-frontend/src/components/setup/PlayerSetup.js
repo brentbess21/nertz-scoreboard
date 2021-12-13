@@ -9,6 +9,7 @@ import PlayerForm from './PlayerForm';
 import Player from './Player';
 
 
+
 const PlayerSetup = (props) => {
 
     const navigate = useNavigate()
@@ -25,23 +26,19 @@ const PlayerSetup = (props) => {
     }
 
     return(
-        <div>
+        <div className='player-setup'>
             <Header />
-
-                <h1>Who is going to play?</h1>
-
-            <PlayerForm />
-
-                {props.gameFormValues.players.map(player => {
-                    return <Player key={player.playerId} player={player}/>
-                })}
-
-            <div className='flex'>
-                <Link to='/gamestyle' className='link-button' id='back-button' onClick={backHandler}>Back</Link>
-                {/* <Link to='' className = 'link-button' id='next-button' onClick={nextHandler} >Next</Link> */}
-                <button className='disabled-button' id='next-button' onClick={NextHandler} disabled={props.disabledButtons.nextButton}>Next</button>
-            </div>    
-
+            <main className='grid-container'>
+                <h1 className='title txt-light'>Who is going to play?</h1>
+                <PlayerForm />
+                    {props.gameFormValues.players.map(player => {
+                        return <Player key={player.playerId} player={player}/>
+                    })}
+                <div className='flex double-button'>
+                    <Link to='/gamestyle' className='link-button' id='back-button' onClick={backHandler}>Back</Link>
+                    <button className='disabled-button' id='next-button' onClick={NextHandler} disabled={props.disabledButtons.nextButton}>Next</button>
+                </div>    
+            </main>
         </div>
     )
 }

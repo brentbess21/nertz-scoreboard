@@ -6,7 +6,9 @@ const Error = (props)=> {
     return(
         <div>
             <Header />
-            <h1>Uh Oh! There was nothing found!</h1>
+            <main className='grid-container'>
+                <h1>Uh Oh! There was nothing found!</h1>
+            </main>
         </div>
     )
 }

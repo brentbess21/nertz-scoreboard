@@ -72,9 +72,11 @@ const GameSetup = (props) => {
         return(
             <div>
                 <Header />
-                <h1>Uh Oh! There Doesn't Seem To Be Any Game Information</h1>
-                <p>Please Start a New Game</p>
-                <Link to='/gamestyle' className='link-button'>New Game</Link>
+                <main className='grid-container'>
+                    <h1>Uh Oh! There Doesn't Seem To Be Any Game Information</h1>
+                    <p>Please Start a New Game</p>
+                    <Link to='/gamestyle' className='link-button'>New Game</Link>
+                </main>
             </div>
         )
     } else {

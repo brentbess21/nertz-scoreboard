@@ -5,6 +5,8 @@ import { setRounds } from '../../actions/gameActions';
 
 import Header from '../app/Header';
 
+import img from './../../assets/score-chart.png';
+
 const initialInputValue = '1';
 
 const RoundsSetup = (props) => {
@@ -20,19 +22,26 @@ const RoundsSetup = (props) => {
         props.setRounds(rounds)
     }
     return(
-        <div className='container'>
+        <div className='score-setup'>
             <Header />
-            <h1>How Many Rounds Would You Like to Play?</h1>
-            <input 
-                type='number'
-                defaultValue={initialInputValue}
-                min='1'
-                onChange={changeHandler}
-            />
-            <div className='flex container'>
-                <Link to='/gamestyle' className='link-button'>Back</Link>
-                <Link to='/player_setup' className='link-button' onClick={clickHandler}>Enter</Link>
-            </div>
+            <main className='grid-container grid-container--score-setup'>
+                <h1 className='title uppercase txt-light'>Choose the <span className='title-bottom display-block txt-dark'>number of rounds</span></h1>
+                <img src={img} alt='score flip chart'/>
+
+                <label className='score-input-label'> Rounds
+                    <input 
+                        type='number'
+                        defaultValue={initialInputValue}
+                        min='1'
+                        onChange={changeHandler}
+                        className='score-input'
+                    />
+                </label>
+                <div className='flex double-button'>
+                    <Link to='/gamestyle' className='link-button'>Back</Link>
+                    <Link to='/player_setup' className='link-button' onClick={clickHandler}>Enter</Link>
+                </div>
+            </main>
         </div>
     )
 }

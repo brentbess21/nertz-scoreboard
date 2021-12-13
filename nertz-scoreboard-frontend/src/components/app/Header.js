@@ -11,11 +11,11 @@ const Header = (props) => {
         props.resetGameForm();
     }
     return(
-        <header className='container primary-navigation ff-sans-cond'>
-            <nav className='container flex'>
-                <Link to='/' onClick={clearForms}>Home</Link>
-                <Link to ='/about' onClick={clearForms}>About</Link>
-                <a href='https://bicyclecards.com/how-to-play/nerts/' target="_blank" rel='noreferrer'>Rules</a>
+        <header className='primary-header flex'>
+            <nav className='flex primary-nav'>
+                <Link to='/' className='txt-dark' onClick={clearForms}>Home</Link>
+                <Link to ='/about' className='txt-dark' onClick={clearForms}>About</Link>
+                <a className='txt-dark' href='https://bicyclecards.com/how-to-play/nerts/' target="_blank" rel='noreferrer'>Rules</a>
             </nav>
         </header>
     )

@@ -38,14 +38,16 @@ const PlayerForm = (props) => {
 
     return(
         <div>
-            <h1>Add Players</h1>
-            <input 
-                name='name'
-                placeholder='Name'
-                type='text'
-                value={playerName}
-                onChange={changeHandler}
-            />
+            <label className='input-label txt-light'>Player
+                <input 
+                    name='name'
+                    placeholder='Name'
+                    type='text'
+                    value={playerName}
+                    onChange={changeHandler}
+                    className='input'
+                />
+            </label>
             <button onClick={clickHandler}>Add Player</button>
             <p>{nextError}</p>
         </div>
