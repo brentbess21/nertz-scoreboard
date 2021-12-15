@@ -23,6 +23,12 @@ const ScoreSetup = (props) => {
         const score = parseInt(inputValue)
         props.setWinningScore(score)
     }
+
+    const enterHandler = (e) => {
+        if(e.charCode === 13 || e.keyCode === 13) {
+            clickHandler();
+        }
+    }
     
     return(
         <div className='score-setup'>
@@ -37,6 +43,7 @@ const ScoreSetup = (props) => {
                         step='10'
                         min='10'
                         onChange={changeHandler}
+                        onKeyPress={enterHandler}
                         className='score-input'
                     />
                 </label>

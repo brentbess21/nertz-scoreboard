@@ -21,6 +21,13 @@ const RoundsSetup = (props) => {
         const rounds = parseInt(inputValue)
         props.setRounds(rounds)
     }
+
+    const enterHandler = (e) => {
+        if(e.charCode === 13 || e.keyCode === 13) {
+            clickHandler();
+        }
+    }
+
     return(
         <div className='score-setup'>
             <Header />
@@ -30,10 +37,13 @@ const RoundsSetup = (props) => {
 
                 <label className='score-input-label'> Rounds
                     <input 
-                        type='number'
+                        type="text"
                         defaultValue={initialInputValue}
+                        inputMode="numeric"
+                        pattern="[0-9]*"
                         min='1'
                         onChange={changeHandler}
+                        onKeyPress={enterHandler}
                         className='score-input'
                     />
                 </label>
