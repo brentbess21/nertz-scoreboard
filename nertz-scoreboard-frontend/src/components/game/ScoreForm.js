@@ -28,6 +28,12 @@ const ScoreForm = (props) => {
         props.updatePlayerScore(info)
         setInputValue(initialInputValue)
     }
+
+    const enterHandler = (e) => {
+        if (e.charCode === 13 || e.keyCode === 13) {
+            clickHandler()
+        }
+    }
     return (
         <div className='score-form'>
             <label className='score-input-label'> What Was Your Score This Round?
@@ -37,6 +43,7 @@ const ScoreForm = (props) => {
                     value={inputValue}
                     onChange={changeHandler}
                     className='score-input'
+                    onKeyPress={enterHandler}
                 />
             </label>
             <button className='link-button' onClick={clickHandler}>Save</button>

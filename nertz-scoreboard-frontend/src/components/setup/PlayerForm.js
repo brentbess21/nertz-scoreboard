@@ -41,6 +41,12 @@ const PlayerForm = (props) => {
         
     }
 
+    const enterHandler = (e) => {
+        if (e.charCode === 13 || e.keyCode === 13) {
+            clickHandler();
+          }
+    };
+
     return(
         <div className='grid-container grid-container--player-form'>
             <label className='score-input-label txt-light uppercase'>Player
@@ -51,9 +57,10 @@ const PlayerForm = (props) => {
                     value={playerName}
                     onChange={changeHandler}
                     className='score-input'
+                    onKeyPress={enterHandler}
                 />
             </label>
-            <button onClick={clickHandler} className='link-button'>Add Player</button>
+            <button onClick={clickHandler}  className='link-button'>Add Player</button>
             <p>{nextError}</p>
         </div>
     )
