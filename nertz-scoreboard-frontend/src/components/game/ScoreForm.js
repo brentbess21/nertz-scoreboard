@@ -29,7 +29,7 @@ const ScoreForm = (props) => {
         setInputValue(initialInputValue)
     }
     return (
-        <div className=''>
+        <div className='score-form'>
             <label className='score-input-label'> What Was Your Score This Round?
                 <input 
                     type='number'

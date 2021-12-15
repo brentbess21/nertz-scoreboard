@@ -13,7 +13,7 @@ const Home = (props) => {
         <div className='home'>
         
             <Header />
-            <main className='grid-container grid-container--home'>
+            <main className='grid-container grid-container--home flow'>
                 <h1 className='txt-light title uppercase'>Welcome to the <span className='title-bottom display-block txt-dark fs-800'>Nerts Score Board </span></h1>
                 <img className='logo' src={logo} alt='two playing cards'/>
                 <div className='flex double-button'>

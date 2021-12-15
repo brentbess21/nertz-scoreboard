@@ -14,18 +14,20 @@ const WinningScoreBoard = (props) => {
     const game = games.find(game => game.gameId === parseInt(gameId));
 
     return(
-        <div>
-        
-            <h1>Nerts Score board!</h1>
-            <p>Winning Score: {game.winningScore}</p> 
-            <p>Current Round: {game.currentRound} </p>
+        <div className='grid-container grid-container--scoreboard'>
+            <h1 className='title uppercase txt-light'>Nerts <span className='title-bottom txt-dark display-block'>Score board</span></h1>
+            
+            <div className='game-info txt-light'>
+                <h3>Winning Score: {game.winningScore}</h3> 
+                <h3>Current Round: {game.currentRound} </h3>
 
-            {game.currentLeader.length < 1? 
-            <div></div> :
-            <h3>Current Leader: {game.currentLeader.map(player => {
-                return <p key={player.playerId} style={{display: 'inline'}}>{player.playerName} </p>
-            })}</h3>
-            }
+                {game.currentLeader.length < 1? 
+                <div></div> :
+                <h3>Current Leader: {game.currentLeader.map(player => {
+                    return <p key={player.playerId} style={{display: 'inline'}}>{player.playerName} </p>
+                })}</h3>
+                }
+            </div>
 
 
             <div className='player-rows flex'>
@@ -39,7 +41,7 @@ const WinningScoreBoard = (props) => {
                 })}
             </div>
 
-            <button className='link-button' onClick={nextRound}>Next Round</button>
+            <button className='link-button next-round-button' onClick={nextRound}>Next Round</button>
         
         </div>
     )

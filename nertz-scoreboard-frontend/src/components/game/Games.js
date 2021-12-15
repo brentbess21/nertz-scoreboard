@@ -23,10 +23,12 @@ const Games = (props) => {
                 <Header />
                 <main className='grid-container'>
                     <h1>Pick a Game!</h1>
-                    {props.games.map(game => {
-                        return <Link className='link-button' to={`/games_list/${game.gameId}`} key={game.gameId}>{game.players.length} players <span className='display-block title-bottom txt-dark'>More Info</span></Link>
-                    
-                    })}
+                    <div className='games-list flex'>
+                        {props.games.map(game => {
+                            return <Link className='link-button' to={`/games_list/${game.gameId}`} key={game.gameId}>{game.players.length} players <span className='display-block title-bottom txt-dark'>More Info</span></Link>
+                        
+                        })}
+                    </div>
                 </main>
             </div>
         )
