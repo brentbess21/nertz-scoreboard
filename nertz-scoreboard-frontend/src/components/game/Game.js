@@ -16,15 +16,17 @@ const Game = (props) => {
         return(
             <div>
                 <Header />
-                <h1>GAME ID:{game.gameId}</h1>
-                <h3>Players:</h3>
-                {game.players.map(player=> {
-                    return <p key={player.playerId}>{player.playerName}: {player.currentScore}</p>
-                })}
-                <div className='container flex'>
-                    <Link to='/games_list' className='link-button'>Back</Link>
-                    <Link to={`/games_list/${game.gameId}/play`} className='link-button'>Play</Link>
-                </div>        
+                <main className='grid-container'>
+                    <h1>GAME ID:{game.gameId}</h1>
+                    <h3>Players:</h3>
+                    {game.players.map(player=> {
+                        return <p key={player.playerId}>{player.playerName}: {player.currentScore}</p>
+                    })}
+                    <div className='container flex'>
+                        <Link to='/games_list' className='link-button'>Back</Link>
+                        <Link to={`/games_list/${game.gameId}/play`} className='link-button'>Play</Link>
+                    </div>   
+                </main>     
             </div>
         )
     } else {

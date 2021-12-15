@@ -7,6 +7,9 @@ import { resetPlayerForm, resetGameForm, setGameId, disableNextButton} from './.
 import Header from '../app/Header';
 import PlayerForm from './PlayerForm';
 import Player from './Player';
+import Error from '../app/Error';
+
+import img from './../../assets/user-icon.png';
 
 
 
@@ -25,22 +28,33 @@ const PlayerSetup = (props) => {
         props.disableNextButton()
     }
 
-    return(
-        <div className='player-setup'>
-            <Header />
-            <main className='grid-container'>
-                <h1 className='title txt-light'>Who is going to play?</h1>
-                <PlayerForm />
-                    {props.gameFormValues.players.map(player => {
-                        return <Player key={player.playerId} player={player}/>
-                    })}
-                <div className='flex double-button'>
-                    <Link to='/gamestyle' className='link-button' id='back-button' onClick={backHandler}>Back</Link>
-                    <button className='disabled-button' id='next-button' onClick={NextHandler} disabled={props.disabledButtons.nextButton}>Next</button>
-                </div>    
-            </main>
-        </div>
-    )
+    if(props.gameFormValues.winningScore === null && props.gameFormValues.rounds === null) {
+        return <Error />
+    } else {
+        return(
+            <div className='player-setup'>
+                <Header />
+                <main className='grid-container grid-container--player-setup'>
+                    <h1 className='title txt-light uppercase'>Add <span className='txt-dark title-bottom display-block'>Players</span></h1>
+                    <img src={img} alt='user icon' />
+    
+                    <div className='player-setup-form'>                    
+                        <div className='cards-container flex'>
+                            {props.gameFormValues.players.map(player => {
+                                return <Player key={player.playerId} player={player}/>
+                            })}
+                        </div>
+                        <PlayerForm />
+                    </div>
+                    
+                    <div className='flex double-button'>
+                        <Link to='/gamestyle' className='link-button' id='back-button' onClick={backHandler}>Back</Link>
+                        <button className='disabled-button' id='next-button' onClick={NextHandler} disabled={props.disabledButtons.nextButton}>Next</button>
+                    </div>    
+                </main>
+            </div>
+        )
+    }
 }
 
 const mapStateToProps = (state) => {

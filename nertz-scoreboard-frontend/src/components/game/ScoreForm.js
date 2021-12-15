@@ -29,16 +29,17 @@ const ScoreForm = (props) => {
         setInputValue(initialInputValue)
     }
     return (
-        <div>
-            <label> What Was Your Score This Round?
+        <div className=''>
+            <label className='score-input-label'> What Was Your Score This Round?
                 <input 
                     type='number'
                     placeholder='Round Score'
                     value={inputValue}
                     onChange={changeHandler}
+                    className='score-input'
                 />
             </label>
-            <button onClick={clickHandler}>Save</button>
+            <button className='link-button' onClick={clickHandler}>Save</button>
         </div>
     )
 }

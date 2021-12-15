@@ -1,16 +1,28 @@
 import React from 'react';
 
-import ScoreForm from './ScoreForm';
-
 const GamePlayer = (props) => {
 
     const { player } = props;
     return(
         <div>
-            <h1>{player.playerName}</h1>
-            <p>Current Score: {player.currentScore}</p>
-            <ScoreForm player={player}/>
+            <div className='grid grid-container--player-card'>
+                <div className='top-card-pip'>
+                    <p>{player.playerNumber}</p>
+                    <p>{player.playerSuit}</p>
+                </div>
+                
+                <div className='player-card-info'>
+                    <h1>{player.playerName}</h1>
+                    <h3>Score: {player.currentScore}</h3>
+                </div>
+                
+                <div className='bottom-card-pip'>
+                    <p>{player.playerNumber}</p>
+                    <p>{player.playerSuit}</p>
+                </div>
+            </div>
         </div>
+
     )
 }
 

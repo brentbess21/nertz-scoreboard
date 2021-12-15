@@ -16,7 +16,7 @@ export const initialState = {
         playerNumber: 0,
         playerName: '',
         currentScore: 0,
-        roundScore: [] // array of scores for each round
+        playerSuit: null
     },
     disabledButtons: {
         nextButton: true,
@@ -81,7 +81,7 @@ const gameReducer = (state = initialState, action) => {
                     playerNumber: 0,
                     playerName: '',
                     currentScore: 0,
-                    roundScore: [] 
+                    playerSuit: null
                 }
             })
 

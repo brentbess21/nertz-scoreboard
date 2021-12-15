@@ -14,7 +14,7 @@ const Home = (props) => {
         
             <Header />
             <main className='grid-container grid-container--home'>
-                <h1 className='txt-light title'>Welcome to the <span className='title-bottom display-block txt-dark fs-800'>Nerts Score Board </span></h1>
+                <h1 className='txt-light title uppercase'>Welcome to the <span className='title-bottom display-block txt-dark fs-800'>Nerts Score Board </span></h1>
                 <img className='logo' src={logo} alt='two playing cards'/>
                 <div className='flex double-button'>
                     <Link to='/gamestyle' className='link-button'>New Game</Link>

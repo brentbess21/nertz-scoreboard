@@ -10,7 +10,7 @@ const GameStyle = () => {
         <div className='gamestyle'>
             <Header />
             <main className='grid-container grid-container--gamestyle'>
-                <h1 className='title txt-light'>How Would You <span className='title-bottom display-block txt-dark fs-800'>Like to Play?</span></h1>
+                <h1 className='title txt-light uppercase'>Choose a <span className='title-bottom display-block txt-dark fs-800'>Game Style</span></h1>
                 <img src={img} alt='question marks' />
                 <div className='flex double-button'>
                     <Link to='/score_setup' className='link-button'>Select Score</Link>

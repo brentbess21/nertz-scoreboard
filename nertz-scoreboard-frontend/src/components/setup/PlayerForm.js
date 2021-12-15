@@ -10,6 +10,10 @@ const PlayerForm = (props) => {
     const [playerName, setPlayerName] = useState('');
     const[nextError, setNextError] = useState(initialNextError);
 
+    const suits = ['♥️','♣️','♠️','♦️']
+    const randomIndex = Math.floor(Math.random() * 4);
+    const randomSuit = suits[randomIndex]
+
     const changeHandler = (e) => {
         setPlayerName(e.target.value)
     }
@@ -28,7 +32,8 @@ const PlayerForm = (props) => {
             playerNumber: props.gameFormValues.players.length +1,
             playerName: playerName,
             currentScore: 0,
-            roundScore: []
+            playerSuit: randomSuit
+
         }        
         props.addPlayer(newPlayer)
         setPlayerName('')
@@ -37,18 +42,18 @@ const PlayerForm = (props) => {
     }
 
     return(
-        <div>
-            <label className='input-label txt-light'>Player
+        <div className='grid-container grid-container--player-form'>
+            <label className='score-input-label txt-light uppercase'>Player
                 <input 
                     name='name'
                     placeholder='Name'
                     type='text'
                     value={playerName}
                     onChange={changeHandler}
-                    className='input'
+                    className='score-input'
                 />
             </label>
-            <button onClick={clickHandler}>Add Player</button>
+            <button onClick={clickHandler} className='link-button'>Add Player</button>
             <p>{nextError}</p>
         </div>
     )

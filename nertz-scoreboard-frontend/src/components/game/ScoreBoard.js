@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import { updateCurrentHighScore, updateRound, findLeader } from '../../actions/gameActions';
 
@@ -8,6 +8,7 @@ import Header from '../app/Header';
 import RoundsScoreBoard from './RoundsScoreBoard';
 import WinningScoreBoard from './WinningScoreBoard';
 import Winner from './Winner';
+import Error from '../app/Error';
 
 const currentScores = []
 const highScoreNames = []
@@ -49,24 +50,17 @@ const ScoreBoard = (props) => {
     }
 
     if(!game) {
-        return(
-            <div>
-                <Header />
-                <h1>Uh Oh! That game wasn't found!</h1>
-                <p>Please navigate back home to resume a game or start a new game!</p>
-                <Link to='/' className='link-button'>Home</Link>
-            </div>
-        )
+        return <Error />
     } else if (game.rounds !== null && game.currentRound <= game.rounds) {
         return (
-            <div className='container'>
+            <div className='score-board'>
                 <Header />
                 <RoundsScoreBoard nextRound={nextRound} />
             </div>
         )
     } else if (game.winningScore !== null && game.currentHighScore < game.winningScore) {
         return (
-            <div className='container'>
+            <div className='score-board'>
                 <Header />
                 <WinningScoreBoard nextRound={nextRound} /> 
             </div>
@@ -74,14 +68,14 @@ const ScoreBoard = (props) => {
         ) 
     } else if (game.rounds !== null && game.currentRound > game.rounds) {
         return (
-            <div className='container'>
+            <div className='score-board'>
                 <Header />
                 <Winner />
             </div>
         ) 
     } else if (game.winningScore !== null && game.currentHighScore >= game.winningScore) {
         return (
-            <div className='container'>
+            <div className='score-board'>
                 <Header />
                 <Winner />
             </div>

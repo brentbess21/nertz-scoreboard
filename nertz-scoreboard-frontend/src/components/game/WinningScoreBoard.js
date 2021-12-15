@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import { updateRound, updateCurrentHighScore, findLeader } from '../../actions/gameActions';
 
 import GamePlayer from '../game/GamePlayer';
+import ScoreForm from './ScoreForm';
 
 const WinningScoreBoard = (props) => {
 
@@ -16,9 +17,7 @@ const WinningScoreBoard = (props) => {
         <div>
         
             <h1>Nerts Score board!</h1>
-
             <p>Winning Score: {game.winningScore}</p> 
-
             <p>Current Round: {game.currentRound} </p>
 
             {game.currentLeader.length < 1? 
@@ -28,11 +27,19 @@ const WinningScoreBoard = (props) => {
             })}</h3>
             }
 
-            {game.players.map(player=> {
-                return <GamePlayer player={player} key={player.playerId}/>
-            })}
 
-            <button onClick={nextRound}>Next Round</button>
+            <div className='player-rows flex'>
+                {game.players.map(player=> {
+                    return (
+                        <div className='player-columns flex'>
+                            <GamePlayer player={player} key={player.playerId}/>
+                            <ScoreForm player={player} key={player.playerId}/>
+                        </div>
+                    )
+                })}
+            </div>
+
+            <button className='link-button' onClick={nextRound}>Next Round</button>
         
         </div>
     )

@@ -7,7 +7,7 @@
   /* colors */
   --clr-dark: 0, 0%, 50%;
   --clr-light: 43, 25%, 51%;
-  --clr-white: 0 0% 100%;
+  --clr-white: 0 5% 85%;
 
   /* font size */
   --fs-900: clamp(5rem, calc(8vw + 1rem), 9.375rem);
@@ -245,7 +245,7 @@ select {
 }
 
 .grid-container--score-setup > .score-input-label {
-  grid-area: score
+  grid-area: score;
 }
 
 .grid-container--score-setup > img {
@@ -257,6 +257,86 @@ select {
 .grid-container--score-setup > .double-button {
   grid-area: buttons;
 }
+
+/* player form layout */
+
+.grid-container--player-form {
+  align-content: center;
+  justify-content: center;
+  min-height: 0;
+  margin: 1rem;
+}
+
+
+/* player card layout */
+
+.grid-container--player-card {
+  background-color: hsl(var(--clr-white));
+  box-shadow: 1px 1px hsl(var(--clr-dark));
+  width: 10rem;
+  height: 14rem;
+  border-radius: 12.5px;
+  justify-items: center;
+  align-content: center;
+  grid-template-areas: 
+      '. top-pip . . . .'
+      '. info info info info .'
+      '. . . . bottom-pip .';
+}
+
+.grid-container--player-card > .top-card-pip {
+  grid-area: top-pip;
+  margin-right: 2.5rem;
+  color: hsl(var(--clr-dark));
+}
+
+.grid-container--player-card > .bottom-card-pip {
+  grid-area: bottom-pip;
+  color: hsl(var(--clr-dark))
+
+}
+
+.grid-container--player-card > .player-card-info {
+  grid-area: info;
+  margin: 1.5rem 0;
+  color: hsl(var(--clr-light));
+  text-shadow: .5px 1px rgb(63, 63, 63);
+}
+
+.bottom-card-pip {
+  transform: rotate(180deg);
+}
+
+
+/* player setup */
+
+.grid-container--player-setup {
+  grid-template-areas: 
+    '. title title .'
+    '. form form .'
+    '. buttons buttons .';
+}
+
+.grid-container--player-setup > .title {
+  grid-area: title;
+}
+
+.grid-container--player-setup > img {
+  grid-area: image;
+  max-width: 30%;
+}
+
+.grid-container--player-setup > .player-setup-form {
+  grid-area: form;
+}
+
+.grid-container--player-setup > .double-button {
+  grid-area: buttons;
+}
+
+
+
+
 
 
 
@@ -353,24 +433,78 @@ select {
 /* Player Setup */
 
 .player-setup {
-  background-image: url(./assets/andrew-kliatskyi-L52tyPFiLac-unsplash.jpg);
+  background-image: url(./assets/andrew-kliatskyi-P5v-dOEsmdw-unsplash.jpg);
   background-size: cover;
   background-position: top center;
   min-width: 100vw;
   min-height: 100vh;
 }
 
+.player-card {
+  margin: rem;
+}
 
+.cards-container {
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+
+/* game setup */
+
+.game-setup {
+  background-image: url(./assets/andrew-kliatskyi-P5v-dOEsmdw-unsplash.jpg);
+  background-size: cover;
+  background-position: top center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+/* score board */
+
+.score-board {
+  background-image: url(./assets/andrew-kliatskyi-jpu0gMXT9to-unsplash.jpg);
+  background-size: cover;
+  background-position: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.player-rows {
+  flex-direction: column;
+}
+
+.player-columns {
+  
+}
+
+
+/* error */
+
+.error {
+  background-image: url(./assets/andrew-kliatskyi-d3YXpAqdy2I-unsplash.jpg);
+  background-size: cover;
+  background-position: top center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.error-point {
+  width: 20%;
+  max-width: 15rem;
+  margin-bottom: 2rem;
+}
 
 
 
 
 .disabled-button {
-  background-color: darkgray;
+  background-color: rgba(128, 128, 128, .5);
   cursor: not-allowed;
   text-align: center;
   display: block;
-  border: 1px solid black;
+  border: 2px solid hsl(var(--clr-light));
   padding: 1rem;
   width: 9rem;
   margin: 1rem auto;
