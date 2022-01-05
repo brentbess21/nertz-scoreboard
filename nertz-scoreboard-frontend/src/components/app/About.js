@@ -6,7 +6,9 @@ const About = () => {
     return(
         <div className='container'>
             <Header />
-            <h1>This is where you find information about this app!</h1>
+            <h1>About The Nerts Scoreboard</h1>
+
+            <p>This website was built so you can keep track of the score of each player playing a game of Nerts</p>
         </div>
     )
 }
